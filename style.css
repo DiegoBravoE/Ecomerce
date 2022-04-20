@@ -9,6 +9,9 @@ body{
     background-color: #f7f7f8;
   
 }
+a{
+    color:black;
+}
 .nav.sticky{
     
     height:3rem;
@@ -250,7 +253,7 @@ font-size: 3rem;
     .nav ul{
         margin-right: 10rem;
 }
-    }
+    
     .imagen-buzo img{
         width: 400px;
         margin-right: 5rem;
