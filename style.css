@@ -237,6 +237,12 @@ font-size: 3rem;
     height: 5rem;
     border-top: 1px solid;
 }
+.derechos{
+
+border-top: 5px double #1C6EA4;
+
+    
+}
 @media screen and (min-width:768px) {
     .app{
         display: none;
