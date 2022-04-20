@@ -79,7 +79,7 @@ font-size: 3rem;
     height:3rem;
     position: fixed;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .nav ul{
     
@@ -186,6 +186,9 @@ font-size: 3rem;
     border-radius: 10px 10px 0 0; 
     margin-bottom: -20px;
 }
+button:hover{
+    background-color: #bbbbbb;
+}
 .boton{
     border-radius:0 0 10px 10px ; 
     padding-bottom: 1rem;
@@ -238,7 +241,7 @@ font-size: 3rem;
 }
 .derechos{
 
-border-top: 5px double #1C6EA4;
+border-top: 5px double #757575;
 
     
 }
