@@ -84,10 +84,14 @@ font-size: 3rem;
 }
 .nav ul{
     
+    font-size:1.2rem;
     display: flex;
     list-style: none;
     margin-right: 2rem;
   
+}
+.menu-desptok a:hover{
+    color:rgb(245, 40, 3);
 }
 .nav li{
     margin: 10px;
@@ -140,7 +144,8 @@ font-size: 3rem;
     border: none;
 }
 .discover:hover{
-   color:#fff;
+   color:azure;
+   transition:.5s;
 }
 .cart{
     cursor: pointer;
@@ -153,7 +158,7 @@ font-size: 3rem;
 .cart:hover{
     
    background-color: rgb(243, 68, 38);
-    
+    transition:.5s;
 }
 .show-all,
 .hoodies,
@@ -161,6 +166,7 @@ font-size: 3rem;
     border-right: 1px solid;
    
 }
+
 .productos ul{
     margin-top: 4rem;
     display: grid;
@@ -212,17 +218,20 @@ font-size: 3rem;
     
 }
 
-button:hover{
+.boton button:hover{
     background-color:tomato;
+    transition:.5s;
 }
 .boton{
+    margin-bottom: 2rem;
     border-radius:0 0 10px 10px ; 
     padding-bottom: 1rem;
    background: rgb(218, 215, 215);
 }
 .boton button{
     border: none;
-    padding:10px 12px;
+    font-size: 2rem;
+    padding:4px 13px;
     border-radius: 30px;
     margin-left: 12rem;
     margin-top: -2rem;
@@ -326,9 +335,12 @@ border-top: 5px double #757575;
         
         padding: 0 20px;
     }
-    .productos ul{
+    
+    .articulos{
         display: flex;
-  
+    }
+    .contenedor-producto{
+        padding: 1rem;
     }
     .stock{
 

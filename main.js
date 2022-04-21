@@ -24,8 +24,18 @@ const productos={
 
 ]
 }   
-const boton=document.querySelector(".agregar")
-boton.addEventListener("click",()=>{
-    let carrito= localStorage.getItem("buzo")
-alert(carrito)
-});
+const carrito=[]
+
+const agregarProducto= ()=>{
+    carrito.push(productos.stock[0])
+    localStorage.setItem("producto1",JSON.stringify(carrito))
+   
+}
+
+const producto1=document.querySelector(".producto1")
+producto1.addEventListener("click",()=> {
+
+    agregarProducto()
+  
+  
+})
