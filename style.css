@@ -21,11 +21,10 @@ a{
 .nav .menu-desptok{
     display: none;
 }
+
 .logo {
     display: flex;
    
-    color:black;
-    text-decoration: none;
    
 }
 .store{
@@ -177,18 +176,41 @@ font-size: 3rem;
     margin-top: 5rem;
 
 }
+.imagen-hover:hover{
+    position: relative;
+    animation: effect 1s ;
+    
+}
+@keyframes effect {
+    0%{
+        top: -5px;
+    }
+    50%{
+        top: 5px;
+    }
+    100%{
+        top: -5px;
+    }
+}
+.imagen-hover{
+    width: 200px;
+    height: 200px;
+    padding:0rem 1rem;
+    margin:0rem -1rem;
+}
 
-
-.imagen img{
+.imagen {
     background:#e6e6e6;
     width: 250px;
     height: 250px;
     padding:20px 45px;
     border-radius: 10px 10px 0 0; 
     margin-bottom: -20px;
+    
 }
+
 button:hover{
-    background-color: #bbbbbb;
+    background-color:tomato;
 }
 .boton{
     border-radius:0 0 10px 10px ; 
@@ -200,6 +222,7 @@ button:hover{
     padding:10px 12px;
     border-radius: 30px;
     margin-left: 12rem;
+    margin-top: -2rem;
     box-shadow: 0px 0px 12px 0px rgb(185, 185, 185);
 }
 .boton p{
@@ -230,7 +253,7 @@ button:hover{
 }
 .social a {
     
-    margin: 0 5px ;
+    padding: 5px ;
 }
 .derechos{
     display: flex;

@@ -8,15 +8,18 @@ const productos={
 [      
    {
     "modelo":"Hoodies",
-    "unidades":3
+    "unidades":3,
+    "precio": "$10.00"
     },
     {
     "modelo":"Shirts",
-    "unidades":4
+    "unidades":4,
+    "precio": "$15.00"
       },
      {
     "modelo":"Sweatshirts",
-    "unidades":5
+    "unidades":5,
+    "precio": "$20.00"
     }
 
 ]
