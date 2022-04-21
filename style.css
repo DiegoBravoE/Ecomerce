@@ -12,8 +12,9 @@ body{
 a{
     color:black;
 }
+
 .nav.sticky{
-    
+   
     height:3rem;
     background:#fffefe;
     box-shadow: 0px 14px 31px -2px rgba(0,0,0,0.5);
@@ -24,7 +25,7 @@ a{
 
 .logo {
     display: flex;
-   
+    margin-left: 2rem;
    
 }
 .store{
@@ -79,12 +80,13 @@ font-size: 3rem;
     position: fixed;
     display: flex;
     justify-content: space-between;
+    
 }
 .nav ul{
     
     display: flex;
     list-style: none;
-    margin-right: 3rem;
+    margin-right: 2rem;
   
 }
 .nav li{
@@ -116,8 +118,8 @@ font-size: 3rem;
 .imagen-buzo img {
 
     width: 300px;
-    padding:80px  20px 60px  ;
-    background-color: red;
+    padding:146px  32px 77px ;
+    background-color: rgb(243, 68, 38);
 }
 .titulo-descripcion{
     margin-left: 3rem;
@@ -150,7 +152,8 @@ font-size: 3rem;
 
 .cart:hover{
     
-    background-color: rgb(236, 10, 10);
+   background-color: rgb(243, 68, 38);
+    
 }
 .show-all,
 .hoodies,
@@ -270,10 +273,12 @@ border-top: 5px double #757575;
     
 }
 @media screen and (min-width:768px) {
-    .app{
-        display: none;
+    
+    .logo {
+        
+        margin-left: 5rem;
+       
     }
-  
     .nav .menu-desptok {
         display: flex;
         align-items: center;
@@ -284,7 +289,7 @@ border-top: 5px double #757575;
        margin-left: 2rem;
     }
     .nav ul{
-        margin-right: 10rem;
+        margin-right: 18rem;
 }
     
     .imagen-buzo img{
@@ -297,7 +302,7 @@ border-top: 5px double #757575;
         flex-direction: row-reverse;
         justify-content:space-around;
         margin-left: 3rem;
-        
+        padding: 0 20rem;
     }
     .titulo-descripcion{
         display: flex;
@@ -307,7 +312,11 @@ border-top: 5px double #757575;
         margin-right: 5rem;
 
     }
+    .titulo-descripcion h1{
+        margin-top: 5rem;
+    }
     .titulo-descripcion h1,p,span{
+       
       padding:1.5rem;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
