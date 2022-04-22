@@ -36,16 +36,16 @@ const lista= document.getElementById("seleccion1")
 const producto1=document.querySelector(".producto1")
 producto1.addEventListener("click",()=> {
 
-      agregarProducto()
+    agregarProducto()
       
-     alert("agregado al carrito")
+    
       
 })
 const agregarProducto = ()=>{
     carrito.push(productos.stock[0])
     localStorage.setItem("carrito",JSON.stringify(carrito))    
     
-       
+  
 }
 const carritoParseado=JSON.parse(localStorage.getItem("carrito"))
 

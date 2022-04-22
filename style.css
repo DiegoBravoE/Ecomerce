@@ -74,7 +74,7 @@ a{
 }
 .modal-container{
     position: relative;
-    width: 40%;
+    width: 100%;
     height: 100%;
     background-color:white;
     margin-left: auto;
@@ -368,6 +368,10 @@ border-top: 5px double #757575;
     
     .articulos{
         display: flex;
+    }
+    .modal-container{
+       
+        width: 50%;
     }
     .contenedor-producto{
         padding: 1rem;
