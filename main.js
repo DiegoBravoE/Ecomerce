@@ -37,7 +37,7 @@ const producto1=document.querySelector(".producto1")
 producto1.addEventListener("click",()=> {
 
       agregarProducto()
-      console.log(carritoParseado);
+      
      alert("agregado al carrito")
       
 })
