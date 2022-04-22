@@ -56,7 +56,10 @@ a{
     justify-content:start;
 
 }
-
+#seleccion1{
+    border:1px solid black;
+    padding:2rem;
+}
 .modal{
     width: 100%;
     position: fixed;
