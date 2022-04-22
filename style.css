@@ -58,7 +58,11 @@ a{
 }
 #seleccion1{
     border:1px solid black;
-    padding:2rem;
+    
+}
+.delete{
+    width: min-content;
+
 }
 .modal{
     width: 100%;
