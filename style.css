@@ -33,6 +33,30 @@ a{
     align-items: center;
     
 }
+.mobile{
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    background-color:rgba(212, 212, 187, 0.014);
+    display: flex;
+    transform: translate(100%);
+    transition:.5s cubic-bezier(0.4, 0, 1, 1);
+}
+.mobile:target{
+    transform: translate(0);
+}
+.modal-mobile{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    padding-left: 1.5rem;
+    background-color:white;
+    margin-left: auto;
+    display: flex;
+    justify-content:start;
+
+}
+
 .modal{
     width: 100%;
     position: fixed;
@@ -47,14 +71,14 @@ a{
 }
 .modal-container{
     position: relative;
-    width: 50%;
+    width: 40%;
     height: 100%;
     background-color:white;
     margin-left: auto;
     display: flex;
     align-items: center;
     justify-content:center;
-
+    transition:.5s cubic-bezier(0.4, 0, 1, 1);
 }
 .title-modal{
 text-align: center;
@@ -62,7 +86,7 @@ font-size: 3rem;
 }
 .close{
     position: absolute;
-    
+    transition:.5s cubic-bezier(0.4, 0, 1, 1);
     top:0;
     right: 1.5rem;
     width: 40px;
@@ -90,9 +114,7 @@ font-size: 3rem;
     margin-right: 2rem;
   
 }
-.menu-desptok a:hover{
-    color:rgb(245, 40, 3);
-}
+
 .nav li{
     margin: 10px;
     
@@ -282,7 +304,10 @@ border-top: 5px double #757575;
     
 }
 @media screen and (min-width:768px) {
-    
+    .app-hidden{
+
+        visibility: hidden;
+    }
     .logo {
         
         margin-left: 5rem;
@@ -300,7 +325,9 @@ border-top: 5px double #757575;
     .nav ul{
         margin-right: 18rem;
 }
-    
+.menu-desptok a:hover{
+    color:rgb(245, 40, 3);
+}
     .imagen-buzo img{
         width: 400px;
         margin-right: 5rem;
