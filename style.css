@@ -2,8 +2,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-   
+   font-family: Arial, Helvetica, sans-serif;
 }
+
 body{
 
     background-color: #f7f7f8;
@@ -37,7 +38,7 @@ a{
     width: 100%;
     position: fixed;
     inset: 0;
-    background-color:rgba(212, 212, 187, 0.014);
+    background-color:rgba(212, 212, 187, 0);
     display: flex;
     transform: translate(100%);
     transition:.5s cubic-bezier(0.4, 0, 1, 1);
@@ -56,19 +57,12 @@ a{
     justify-content:start;
 
 }
-#seleccion1{
-    border:1px solid black;
-    
-}
-.delete{
-    width: min-content;
 
-}
 .modal{
     width: 100%;
     position: fixed;
     inset: 0;
-    background-color:rgba(212, 212, 187, 0.014);
+    background-color:rgba(196, 196, 24, 0.993);
     display: flex;
     transform: translate(100%);
     transition:.5s cubic-bezier(0.4, 0, 1, 1);
@@ -103,7 +97,10 @@ font-size: 3rem;
     color: #858282;
     font-size: 2rem;
 }
-
+.table img{
+    width: 3rem;
+    height: 3rem;
+}
 
 .nav {
     width: 100%;
@@ -247,28 +244,36 @@ font-size: 3rem;
     
 }
 
-.boton button:hover{
+.agregar-carrito button:hover{
     background-color:tomato;
     transition:.5s;
 }
-.boton{
-    margin-bottom: 2rem;
-    border-radius:0 0 10px 10px ; 
-    padding-bottom: 1rem;
-   background: rgb(218, 215, 215);
-}
-.boton button{
+
+.agregar-carrito {
+   
+    background: rgb(218, 215, 215);
     border: none;
     font-size: 2rem;
     padding:4px 13px;
     border-radius: 30px;
     margin-left: 12rem;
-    margin-top: -2rem;
+    margin-bottom: 2rem;
     box-shadow: 0px 0px 12px 0px rgb(185, 185, 185);
 }
-.boton p{
+.descripcion{
+    width: 15.6rem;
+    background-color: rgb(189, 187, 186);
+    border-radius:0 0 10px 10px ; 
+    height: 5rem;
+    margin-bottom: 3rem;
+    margin-top: -4rem;
+    padding: 1rem;
+    
+}
+.bagregar-carrito p{
     background:rgba(255, 255, 255, 0);
     margin-left: 10px;
+    
 }
 .legales{
     padding: 4rem 1rem ;

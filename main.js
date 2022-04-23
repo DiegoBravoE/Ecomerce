@@ -4,9 +4,8 @@ window.addEventListener("scroll",function(){
     nav.classList.toggle("sticky",window.scrollY > 0)
 })
 
-
     
-const productos=[
+const stock=[
 
                 { 
                 "imagen": "/img/buzo-wilson.jpg", 
@@ -30,46 +29,72 @@ const productos=[
 
 
 
-   
-const carrito=[]
-const agregarProducto = ()=>{
-    carrito.push(productos)
-    localStorage.setItem("productos",JSON.stringify(productos))    
-    
+
+
+  class Carrito{
+
+     comprarProducto(e){
+     e.preventDefault()
+     if(e.target.classList.contains("agregar-carrito") ){
+     const producto = e.target.parentElement.parentElement
+     this.leerDatosProductos(producto)
+     console.log(producto);
+         }
+    }
+
+    leerDatosProductos(producto){
+        const infoProducto = {
+            imagen: producto.querySelector(`img`).src,
+            modelo: producto.querySelector(`p`).textContent,
+            precio: producto.querySelector(`h4`).textContent,
+            id: producto.querySelector(`div`).getAttribute(`data-id`),
+            cantidad:1
+        }
+        this.insertarCrrito(infoProducto)
+    }
+   insertarCrrito(producto){
+       const row=document.createElement(`tr`) ;
+       row.innerHTML = `
+       <td>
+       <img src ="${producto.imagen}"
+       </td>
+       <td>
+       ${producto.precio} 
+       </td>
+       <td>
+       ${producto.modelo}
+         
+       </td>
+       <td>
+       <a href="#" class="borrar-producto fas fa-times-circle"data id= "${producto.id}" ></a> 
+       </td>
+       `;
+       listaProductos.appendChild(row)
+   }
+   eliminarProducto(e){
+       e.preventDefault();
+       let producto
+       let productoId
+       if (e.target.classList.contains(`borrar-producto`)) {
+           e.target.parentElement.parentElement.remove();
+           producto = e.target.parentElement.parentElement;
+           productoId = producto.querySelector(`a`).getAttribute(`data-id`)
+       }
+   }
+  }
+
+
+const carro= new Carrito();
+const carrito =document.getElementById("carrito")
+const productos =document.getElementById("lista-productos")
+const listaProductos= document.querySelector("#lista-carrito tbody")
   
-}
-agregarProducto()
 
+cargarEventos()
 
-
-
-const producto1=document.querySelector(".producto1")
-     producto1.addEventListener("click",()=> {
-
-     const carritoParseado=JSON.parse(localStorage.getItem("productos"))
-     producto1.innerHTML +=
- 
-     `
-     <section class="modal" id="modal">
-
-            <div class="modal-container">
-                <div id="seleccion1">
-                <div class="agregar">
-                <h6>${ carritoParseado[0].imagen}</h6>
-                <h6>${ carritoParseado[0].modelo}</h6>
-                <h6>${ carritoParseado[0].precio}</h6>
-            </div> 
-                 </div>
-                 <a href="#producto" class="close">x</a>
-                 <button class="delete" >eliminar</button>
-             </div>
-        </section>
-            
-      `
-     console.log(carritoParseado[0])
+function cargarEventos(){
+    productos.addEventListener(`click`,(e)=>{carro.comprarProducto(e)})
     
-})
-
-
+}
 
 
