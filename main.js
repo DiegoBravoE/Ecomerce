@@ -16,7 +16,7 @@ window.addEventListener("scroll",function(){
      e.preventDefault()
      if(e.target.classList.contains("agregar-carrito") ){
      const producto = e.target.parentElement.parentElement  
-     console.log()
+     
      this.leerDatosProductos(producto)
    
          }
@@ -31,19 +31,19 @@ window.addEventListener("scroll",function(){
             cantidad:1
            
         }
-        console.log(infoProducto)
+      
         this.insertarCarrito(infoProducto)
     }
    insertarCarrito(producto){
        const row=document.createElement(`tr`) ;
        row.innerHTML = `
-      
-       <td>
+       
        <img src =${producto.imagen}>
        </td>
        <td> ${producto.precio} </td>
        <td> ${producto.modelo}  </td>     
        <td> ${producto.cantidad}  </td>
+       <td> <a href=""class="borrar-producto" >X</a>   </td>
        `;
        listaProductos.appendChild(row)
        this.guardarProductosLocalStorage(producto)
@@ -56,7 +56,9 @@ window.addEventListener("scroll",function(){
            e.target.parentElement.parentElement.remove();
            producto = e.target.parentElement.parentElement;
            productoId = producto.querySelector(`a`).getAttribute(`data-id`);
+        
        }
+       
        this.eliminarProductoLocalStorage(productoId)
     }
        vaciarCarrito(e){
