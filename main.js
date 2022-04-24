@@ -5,27 +5,6 @@ window.addEventListener("scroll",function(){
 })
 
     
-const stock=[
-
-                { 
-                "imagen": "/img/buzo-wilson.jpg", 
-                "modelo":"Hoodies",
-                "unidades":3,
-                "precio": "$10.00"
-                },
-                {
-                "imagen": "/img/crazy-black-21.png",
-                "modelo":"Shirts",
-                "unidades":4,
-                "precio": "$15.00"
-                },
-                {
-                "imagen": "/img/buzo-rosa.png",    
-                "modelo":"Sweatshirts",
-                "unidades":5,
-                "precio": "$20.00"
-                }
-               ]
 
 
 
@@ -36,74 +15,124 @@ const stock=[
      comprarProducto(e){
      e.preventDefault()
      if(e.target.classList.contains("agregar-carrito") ){
-     const producto = e.target.parentElement.parentElement
+     const producto = e.target.parentElement.parentElement  
+     console.log()
      this.leerDatosProductos(producto)
-     console.log(producto);
+   
          }
     }
 
     leerDatosProductos(producto){
-        const infoProducto = {
+            const infoProducto = {
             imagen: producto.querySelector(`img`).src,
-            modelo: producto.querySelector(`p`).textContent,
-            precio: producto.querySelector(`h4`).textContent,
-            id: producto.querySelector(`div`).getAttribute(`data-id`),
+            modelo: producto.querySelector(`h4`).textContent,
+            precio: producto.querySelector(`p`).textContent,
+            productoId: producto.querySelector(`a`).getAttribute(`data-id`),
             cantidad:1
+           
         }
+        console.log(infoProducto)
         this.insertarCarrito(infoProducto)
     }
    insertarCarrito(producto){
        const row=document.createElement(`tr`) ;
        row.innerHTML = `
+      
        <td>
-       <img src ="${producto.imagen}"
+       <img src =${producto.imagen}>
        </td>
-       <td>
-       ${producto.precio} 
-       </td>
-       <td>
-       ${producto.modelo} 
-       </td>
-       <td>
-       <a href="#" class="borrar-producto fas fa-times-circle"data id= "${producto.id}" ></a> 
-       </td>
+       <td> ${producto.precio} </td>
+       <td> ${producto.modelo}  </td>     
+       <td> ${producto.cantidad}  </td>
        `;
        listaProductos.appendChild(row)
+       this.guardarProductosLocalStorage(producto)
    }
        eliminarProducto(e){
        e.preventDefault();
-       let producto
-       let productoId
+       let producto,productoId;
+       
        if (e.target.classList.contains(`borrar-producto`)) {
            e.target.parentElement.parentElement.remove();
            producto = e.target.parentElement.parentElement;
-           productoId = producto.querySelector(`a`).getAttribute(`data-id`)
+           productoId = producto.querySelector(`a`).getAttribute(`data-id`);
        }
+       this.eliminarProductoLocalStorage(productoId)
     }
        vaciarCarrito(e){
-           e.preventDefault()
+          e.preventDefault()
           while(listaProductos.firstChild){
-   listaProductos.removeChild(listaProductos.firstChild);
+          listaProductos.removeChild(listaProductos.firstChild);
           }
           return false;
         }
-       
+       guardarProductosLocalStorage(producto){
+         let productos
+         productos=this.obtenerProductosLocalStorage()
+         productos.push(producto)
+         localStorage.setItem(`productos`,JSON.stringify(productos))
+       }
+       obtenerProductosLocalStorage(){
+           let productoLs
+           if (localStorage.getItem(`productos`)===null) {
+               productoLs=[]
+           }
+           else{
+               productoLs=JSON.parse(localStorage.getItem(`productos`))
+           }
+           return productoLs
+          
+       }
+       eliminarProductoLocalStorage(productoId){
+     let productosLs
+     productosLs =this.obtenerProductosLocalStorage()
+     productosLs.forEach(function(productoLs,index){
+         if(productoLs.id===productoId){
+             productosLs.splice(index,1)
+         }
+     })
+     localStorage.setItem(`productos`,JSON.stringify(productosLs))
+       }
+       leerLocalStorage(){
+           let productosLs
+           productosLs=this.obtenerProductosLocalStorage()
+           productosLs.forEach(function(producto){
+            const row=document.createElement(`tr`) ;
+            row.innerHTML = `
+           
+            <td>
+            <img src =${producto.imagen}>
+            </td>
+            <td> ${producto.precio} </td>
+            <td> ${producto.modelo}  </td>
+            <td> ${producto.cantidad}  </td>
+     
+            `; 
+           })
+       }
    }
   
 
 
     const carro= new Carrito();
+    
     const carrito =document.getElementById("carrito")
+    
     const productos =document.getElementById("lista-productos")
-    const listaProductos= document.querySelector("#lista-carrito tbody")
+    
+    const listaProductos= document.querySelector("#lista-carrito ")
+    
     const vaciarCarritoBtn=document.getElementById("vaciar-carrito")
+
 
     cargarEventos()
 
 function cargarEventos(){
     productos.addEventListener(`click`,(e)=>{carro.comprarProducto(e)});
     carrito.addEventListener("click", ()=>{carro.eliminarProducto(e)});
-    vaciarCarritoBtn.addEventListener("click",()=>{carro.eliminarProducto(e)});
+    vaciarCarritoBtn.addEventListener("click",()=>{carro.eliminarProducto()});
+    document.addEventListener( `DOMContentLoaded`,carro.leerLocalStorage())
 }
+
 
 
