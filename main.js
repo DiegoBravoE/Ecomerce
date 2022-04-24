@@ -50,9 +50,9 @@ const stock=[
             id: producto.querySelector(`div`).getAttribute(`data-id`),
             cantidad:1
         }
-        this.insertarCrrito(infoProducto)
+        this.insertarCarrito(infoProducto)
     }
-   insertarCrrito(producto){
+   insertarCarrito(producto){
        const row=document.createElement(`tr`) ;
        row.innerHTML = `
        <td>
@@ -62,8 +62,7 @@ const stock=[
        ${producto.precio} 
        </td>
        <td>
-       ${producto.modelo}
-         
+       ${producto.modelo} 
        </td>
        <td>
        <a href="#" class="borrar-producto fas fa-times-circle"data id= "${producto.id}" ></a> 
@@ -71,7 +70,7 @@ const stock=[
        `;
        listaProductos.appendChild(row)
    }
-   eliminarProducto(e){
+       eliminarProducto(e){
        e.preventDefault();
        let producto
        let productoId
@@ -80,21 +79,31 @@ const stock=[
            producto = e.target.parentElement.parentElement;
            productoId = producto.querySelector(`a`).getAttribute(`data-id`)
        }
+    }
+       vaciarCarrito(e){
+           e.preventDefault()
+          while(listaProductos.firstChild){
+   listaProductos.removeChild(listaProductos.firstChild);
+          }
+          return false;
+        }
+       
    }
-  }
-
-
-const carro= new Carrito();
-const carrito =document.getElementById("carrito")
-const productos =document.getElementById("lista-productos")
-const listaProductos= document.querySelector("#lista-carrito tbody")
   
 
-cargarEventos()
+
+    const carro= new Carrito();
+    const carrito =document.getElementById("carrito")
+    const productos =document.getElementById("lista-productos")
+    const listaProductos= document.querySelector("#lista-carrito tbody")
+    const vaciarCarritoBtn=document.getElementById("vaciar-carrito")
+
+    cargarEventos()
 
 function cargarEventos(){
-    productos.addEventListener(`click`,(e)=>{carro.comprarProducto(e)})
-    
+    productos.addEventListener(`click`,(e)=>{carro.comprarProducto(e)});
+    carrito.addEventListener("click", ()=>{carro.eliminarProducto(e)});
+    vaciarCarritoBtn.addEventListener("click",()=>{carro.eliminarProducto(e)});
 }
 
 
